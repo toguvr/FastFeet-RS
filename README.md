@@ -130,7 +130,7 @@ A aplicação mobile representa o entregador, podendo se entrar pelo seu código
 - [**EditorConfig**](https://editorconfig.org/)
 
 
-## :information_source: HComo usar o projeto:
+## :information_source: Como usar o projeto:
 Para clonar e rodar você precisará de Git, NodeJS, Yarn e React Native. 
 
 You just need to run the following commands:
