@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MdRemoveRedEye, MdModeEdit, MdDeleteForever } from 'react-icons/md';
 import { Container, ActionList } from './styles';
+import { ClickAwayListener } from '@material-ui/core';
 
 export default function Action({ view, edit, del }) {
   const [visible, setVisible] = useState(false);
@@ -9,7 +10,9 @@ export default function Action({ view, edit, del }) {
     setVisible(!visible);
   }
   return (
+      <ClickAwayListener onClickAway={()=>setVisible(false)}>
     <Container>
+
       <div onClick={handleToggleVisible}>...</div>
       <ActionList visible={visible}>
         {view && (
@@ -38,6 +41,8 @@ export default function Action({ view, edit, del }) {
           </>
         )}
       </ActionList>
+
     </Container>
+      </ClickAwayListener>
   );
 }

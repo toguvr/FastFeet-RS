@@ -2,17 +2,18 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
-import { StatusBar } from 'react-native';
+import { StatusBar, Alert } from 'react-native';
 import Avatar from '~/components/Avatar';
 import { signOut } from '~/store/modules/auth/actions';
 
-import { Container, Title, Form, Name, LogoutButton } from './styles';
+import { Container, LText, Title, Form, Name, LogoutButton } from './styles';
 
 export default function Profile() {
   const dispatch = useDispatch();
   const profile = useSelector(state => state.user.profile);
 
   function handleLogout() {
+
     dispatch(signOut());
   }
 
@@ -34,7 +35,7 @@ export default function Profile() {
         <Name>
           {format(new Date(profile.createdAt), 'dd/MM/yyyy', { locale: pt })}
         </Name>
-        <LogoutButton onPress={handleLogout}>Logout</LogoutButton>
+        <LogoutButton color="#e74040" onPress={handleLogout}><LText>Logout</LText></LogoutButton>
       </Form>
     </Container>
   );

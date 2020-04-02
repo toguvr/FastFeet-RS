@@ -45,7 +45,17 @@ export const SubmitButton = styled(Button)`
   margin-top: 5px;
 `;
 
-export const LogoutButton = styled(Button)`
+export const LogoutButton = styled.TouchableOpacity`
   margin-top: 30px;
   background: #e74040;
+  height: 46px;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const LText = styled.Text`
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
 `;

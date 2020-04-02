@@ -71,8 +71,9 @@ export const PopUp = styled.div`
   strong {
     margin-bottom: 4px;
   }
+
   img {
     width: 100%;
-    height: 100%;
+    height: 100px;
   }
 `;
