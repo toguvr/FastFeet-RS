@@ -6,7 +6,7 @@ export const Container = styled.SafeAreaView.attrs({
   contentContainerStyle: { padding: 36 },
 })`
   flex: 1;
-  padding-left: 36px;
+
 `;
 
 export const OrderList = styled.FlatList`

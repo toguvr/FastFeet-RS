@@ -94,7 +94,7 @@ export default function Orders({ navigation }) {
           </Filter>
         </FlexFilter>
       </SubHeader>
-      <View>
+
         <OrderList
           data={orders}
           keyExtractor={order => String(order.id)}
@@ -111,7 +111,7 @@ export default function Orders({ navigation }) {
             />
           )}
         />
-      </View>
+
     </Container>
   );
 }

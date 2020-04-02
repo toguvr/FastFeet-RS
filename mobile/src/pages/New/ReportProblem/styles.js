@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 import Button from '~/components/Button';
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
   flex: 1;
   padding: 0 20px;
   position: relative;
@@ -45,8 +45,8 @@ export const Title = styled.Text`
 `;
 
 export const Flex = styled.View`
-  margin-top: 7px;
-  margin-bottom: 7px;
+  ${Platform.OS === 'ios' && 'margin: 0 20px'};
+
 `;
 
 export const SubTitle = styled.Text`

@@ -24,6 +24,7 @@ export const Body = styled.View`
   position: relative;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
 `;
 
 export const Footer = styled.View`
@@ -40,7 +41,7 @@ export const FlexDiv = styled.View`
 
 export const Line = styled.View`
   height: 1px;
-  width: 250px;
+  width: 80%;
   border: 1px solid #7d40e7;
   background: #7d40e7;
   position: absolute;

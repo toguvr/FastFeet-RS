@@ -6,6 +6,7 @@ export const Container = styled.View`
   flex: 1;
   padding: 0 20px;
   position: relative;
+  margin-bottom: 30px;
 `;
 
 export const PurpleBack = styled.View`
@@ -37,7 +38,7 @@ export const ImageBackgroundStryled = styled.ImageBackground`
   height: 440px;
 `;
 
-export const Photo = styled.View`
+export const Photo = styled.TouchableOpacity`
   margin-top: 360px;
   width: 60px;
   height: 60px;

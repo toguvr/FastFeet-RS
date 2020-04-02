@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useSelector, useDispatch } from 'react-redux';
 import api from '~/services/api';
 
-import { Container, PurpleBack, Card, TInput } from './styles';
+import { Container, PurpleBack, Card, TInput, Flex } from './styles';
 import { updateOrders } from '~/store/modules/order/actions';
 import Button from '~/components/Button';
 import Input from '~/components/Input';
@@ -24,7 +24,7 @@ export default function ReportProblem() {
     try {
       const body = {
         delivery_id: order.id,
-        description: problem,
+        description: problem.trim(),
       };
 
       await api.post('/deliveries/problem', body);
@@ -42,7 +42,8 @@ export default function ReportProblem() {
     <Container>
       <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
       <PurpleBack />
-      <Card>
+      <Flex>
+      <Card >
         <TInput
           placeholderTextColor="#999999"
           multiline
@@ -58,6 +59,7 @@ export default function ReportProblem() {
       <Button loading={loading} onPress={handleSubmit}>
         Enviar
       </Button>
+      </Flex>
     </Container>
   );
 }

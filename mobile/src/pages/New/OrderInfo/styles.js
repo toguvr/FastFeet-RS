@@ -2,10 +2,11 @@ import styled from 'styled-components/native';
 
 import Button from '~/components/Button';
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
   flex: 1;
   padding: 0 20px;
   position: relative;
+  width: 100%;
 `;
 
 export const PurpleBack = styled.View`
