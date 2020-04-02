@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import IconCM from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
@@ -97,21 +98,15 @@ export default function OrderInfo() {
         </Between>
         <Footer>
           <FlexButton onPress={() => navigation.navigate('ReportProblem')}>
-            {/* DECIDI USAR SEM SER OUTLINE PQ OS OUTLINES APENAS O INFO FUNCIONOU, PREFERI MANTER O PADRAO */}
-            {/* <Icon name="cancel-outline" color="#E74040" size={24} /> */}
-            <Icon name="cancel" color="#E74040" size={24} />
+            <Icon name="highlight-off" color="#E74040" size={24} />
             <ButtonText>Informar Problema</ButtonText>
           </FlexButton>
           <FlexButton onPress={() => navigation.navigate('ViewProblem')}>
-            {/* <Icon name="info-outline" color="#E7BA40" size={24} /> */}
-            <Icon name="info" color="#E7BA40" size={24} />
+            <Icon name="info-outline" color="#E7BA40" size={24} />
             <ButtonText>Visualizar Problemas</ButtonText>
           </FlexButton>
-
           <FlexButton onPress={() => navigation.navigate('EndOrder')}>
-            {/* nao funciona o outline que e o correto */}
-            {/* <Icon name="check-circle-outline" color="#7D40E7" size={24} /> */}
-            <Icon name="check-circle" color="#7D40E7" size={24} />
+            <IconCM name="check-circle-outline" color="#7D40E7" size={24} />
             <ButtonText>Confirmar Entrega</ButtonText>
           </FlexButton>
         </Footer>
