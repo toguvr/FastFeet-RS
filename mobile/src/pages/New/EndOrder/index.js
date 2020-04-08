@@ -11,6 +11,7 @@ import {
   ImageBackgroundStryled,
   Photo,
   Camera,
+  CurrentPhoto
 } from './styles';
 import Button from '~/components/Button';
 import { updateOrders } from '~/store/modules/order/actions';
@@ -28,7 +29,7 @@ export default function EndOrder() {
   const [depth, setDepth] = useState(0);
   const [type, setType] = useState('back');
   const [permission, setPermission] = useState('undetermined');
-  const [file, setFile] = useState({uri: ""});
+  const [file, setFile] = useState({uri: null});
 
   function toggleFlash() {
     setFlash(flashModeOrder[flash]);
@@ -43,16 +44,16 @@ export default function EndOrder() {
   }
 
   async function takePicture() {
+    if(file.uri){
+      setFile({uri: null})
+    }else{
     if (cameraRef) {
       const options = { quality: 0.5, base64: true };
       const data = await cameraRef.current.takePictureAsync(options);
       setFile(data);
     }
   }
-
-  useEffect(()=>{
-    console.tron.log(file.uri)
-  },[file])
+  }
 
   async function handleSubmit() {
     const body = new FormData();
@@ -63,6 +64,8 @@ export default function EndOrder() {
     })
     const response = await api.put(`endorders/${order.id}`, body);
     Alert.alert('Sucesso!', 'Entrega atualizada com sucesso');
+    setFile({uri: null})
+
   }
 
   return (
@@ -70,8 +73,9 @@ export default function EndOrder() {
       <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
       <PurpleBack />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <ImageBackgroundStryled source={delivery}>
-          <Camera
+       <ImageBackgroundStryled source={delivery}>
+
+          {!file.uri && <Camera
             ref={cameraRef}
             type={type}
             flashMode={flash}
@@ -81,7 +85,8 @@ export default function EndOrder() {
               buttonPositive: 'Permitir',
               buttonNegative: 'Não permitir',
             }}
-          />
+            />}
+            {file.uri && <CurrentPhoto source={{uri: file.uri}}/>}
           <Photo onPress={takePicture}>
             <Icon name="camera-alt" size={24} color="#fff" />
           </Photo>

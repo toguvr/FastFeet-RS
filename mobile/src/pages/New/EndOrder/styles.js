@@ -67,3 +67,14 @@ export const Camera = styled(RNCamera)`
   width: 100%;
   position: absolute;
 `;
+
+export const CurrentPhoto = styled.Image`
+  border-radius: 4px;
+  margin: 30px 0 15px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 440px;
+  width: 100%;
+  position: absolute;
+`;
