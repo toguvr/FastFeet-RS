@@ -18,7 +18,7 @@ import { updateOrders } from '~/store/modules/order/actions';
 import api from '~/services/api';
 
 export default function EndOrder() {
-  const loading = useSelector(state => state.order.loading);
+  // const loading = useSelector(state => state.order.loading);
   const order = useSelector(state => state.order.order);
   const dispatch = useDispatch();
 
@@ -30,6 +30,7 @@ export default function EndOrder() {
   const [type, setType] = useState('back');
   const [permission, setPermission] = useState('undetermined');
   const [file, setFile] = useState({uri: null});
+  const [loading, setLoading] = useState(false);
 
   function toggleFlash() {
     setFlash(flashModeOrder[flash]);
@@ -56,6 +57,7 @@ export default function EndOrder() {
   }
 
   async function handleSubmit() {
+    setLoading(true)
     const body = new FormData();
     body.append('file', {
       type: 'image/jpg',
@@ -65,7 +67,7 @@ export default function EndOrder() {
     const response = await api.put(`endorders/${order.id}`, body);
     Alert.alert('Sucesso!', 'Entrega atualizada com sucesso');
     setFile({uri: null})
-
+    setLoading(false)
   }
 
   return (

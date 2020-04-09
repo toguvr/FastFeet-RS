@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  width:135px;
   background: ${props => props.color} 0% 0% no-repeat padding-box;
   border-radius: 12px;
   padding: 4px 7px 4px 28px;
