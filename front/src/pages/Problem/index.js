@@ -45,7 +45,7 @@ export default function Problem() {
           {orders &&
             orders.map(problem => (
               <tbody>
-                <td>#{problem.delivery.id}</td>
+                <td>#{problem.delivery && problem.delivery.id}</td>
 
                 <td>{problem.description}</td>
                 <td>
